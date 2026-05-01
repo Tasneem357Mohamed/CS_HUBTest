@@ -1,0 +1,4 @@
+{
+  "fileName": "ConceptTree.js",
+  "sourceCode": "const theme = 'light';\n\nfunction initialize() {\n  console.log('App started in light mode');\n}"
+}

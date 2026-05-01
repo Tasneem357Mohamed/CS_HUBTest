@@ -1,0 +1,4 @@
+{
+  "fileName": "ProjectDashboard.js",
+  "sourceCode": "import React, { useState, useEffect } from 'react';\n\nconst ProjectDashboard = () => {\n  const [data, setData] = useState([]);\n  const [loading, setLoading] = useState(true);\n\n  useEffect(() => {\n    fetch('/api/projects')\n      .then(res => res.json())\n      .then(result => {\n        setData(result);\n        setLoading(false);\n      });\n  }, []);\n\n  function formatTitle(name) {\n    return name.toUpperCase();\n  }\n\n  if (loading) return <div>Loading...</div>;\n\n  return (\n    <div className=\"container\">\n      <h1>Projects</h1>\n      <ul>\n        {data.map(item => (\n          <li key={item.id}>{formatTitle(item.name)}</li>\n        ))}\n      </ul>\n    </div>\n  );\n};\n\nexport default ProjectDashboard;"
+}
